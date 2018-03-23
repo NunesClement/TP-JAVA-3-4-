@@ -16,58 +16,56 @@ public class Joueur {
 		this.tabPokemon = tabPokemon;
 		this.caisseNourriture = new Nourriture[10];
 	}
-	public boolean verifiePlace() {
-		boolean place = false;
-		int i = 0;
-		int indexPlace;
-		for(i=0;i<this.caisseNourriture.length;i++) {
-			if(this.caisseNourriture[i]==null)
-				place = true;
-		}
+	public boolean verifiePlace(){//renvoi vrai quand place disponible
+		boolean place=false;
+		int i;
+		for (i=0;i<caisseNourriture.length;i++){
+			if (caisseNourriture[i]== null)
+				place=true;
+ 		}
 		return place;
 	}
+	
+	public void afficheCaisseNourriture(){
+		int i;
+		for(i=0;i<caisseNourriture.length;i++){
+			if (caisseNourriture[i]!= null)
+				System.out.println(i+1 + " : " + caisseNourriture[i]);
+		}
+	}
+	
 	public void lacherNourriture(int index){
 		caisseNourriture[index]=null;
 	}
-	public void ajoutNourriture(Nourriture nourritureTrouve) {
-		int i = 0;
-		
-			if(this.verifiePlace()==true) {
-				for (i=0; i< caisseNourriture.length;i++) {
-					
-					if(caisseNourriture[i]==null) {
-						caisseNourriture[i]=nourritureTrouve;
-						
-						break;
-					}
-				}
-				
-			}
-			else {
-					System.out.println("Vous n'avez plus de place");
-			}
-	}
+	
 	public int getAge() {
 		return age;
 	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
+
 	public Nourriture[] getCaisseNourriture() {
 		return caisseNourriture;
 	}
+
 	public void setCaisseNourriture(Nourriture[] caisseNourriture) {
 		this.caisseNourriture = caisseNourriture;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+
 	public void setTabPokemon(Pokemon[] tabPokemon) {
 		this.tabPokemon = tabPokemon;
 	}
+
 	public String getNom() {
 		return this.nom;
 	}
