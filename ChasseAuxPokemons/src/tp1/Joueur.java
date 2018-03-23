@@ -38,22 +38,25 @@ public class Joueur {
 		caisseNourriture[index]=null;
 	}
 	public void ajoutNourriture(Nourriture nourritureTrouve) {
-		int i = 0;
-		
+		int i = 0;		
 			if(this.verifiePlace()==true) {
-				for (i=0; i< caisseNourriture.length;i++) {
-					
+				for (i=0; i< caisseNourriture.length;i++) {					
 					if(caisseNourriture[i]==null) {
-						caisseNourriture[i]=nourritureTrouve;
-						
+						caisseNourriture[i]=nourritureTrouve;						
 						break;
 					}
-				}
-				
+				}				
 			}
 			else {
 					System.out.println("Vous n'avez plus de place");
 			}
+	}
+	public void affichePokemon(){
+		int i;
+		for (i=0;i<tabPokemon.length;i++){
+			if(tabPokemon[i]!=null)
+				System.out.println("vous possedez "+tabPokemon[i].getNom());
+		}
 	}
 	public int getAge() {
 		return age;

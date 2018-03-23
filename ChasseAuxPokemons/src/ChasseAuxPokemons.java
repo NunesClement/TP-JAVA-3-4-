@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class ChasseAuxPokemons {
 
 	public static void main(String[] args) {
-		
+
 		//Elles ne compileront pas car il n'y a plus le booleen "diurne ou nocturne"
 		
 		final Pokemon p1 = new Pokemon("Piplup","EAU",5, true, 50,0,50);
@@ -18,8 +18,9 @@ public class ChasseAuxPokemons {
 		final Pokemon p5 = new Pokemon("Bétochef","COMBAT",7, true, 50,0,50);
 		final Pokemon p6 = new Pokemon("Elektek","ELECTRIQUE",7, true, 50,0,50);
 		final Pokemon p7 = new Pokemon("Boumata","DRAGON",7, true, 50,0,50);
-
-		
+		final Pokemon p8 = new Pokemon("Salameche","FEU",7, true, 50,0,50);
+		final Pokemon p9 = new Pokemon("Bulbizarre","PLANTE",7, true, 50,0,50);
+		final Pokemon p10 = new Pokemon("Carapuce","EAU",7, true, 50,0,50);
 		//Les joueurs
 		
 		final Joueur joueur1 = new Joueur("Durant","Sachat",20,new Pokemon[5]);
@@ -45,13 +46,21 @@ public class ChasseAuxPokemons {
 		String prenomJoueur = lecteur.nextLine();
 		System.out.println("Quelle age avez vous");
 		int ageJoueur = lecteur.nextInt();
-		
+		String reponse;
 		final Joueur joueur = new Joueur(nomJoueur,prenomJoueur,ageJoueur,new Pokemon[5]);
-		System.out.println("Bonjour "+joueur.getPrenom()+" et bienvenue dans le merveilleux monde des pokemons ");
-		joueur.capturer(p1);
+		System.out.println("Bonjour "+joueur.getPrenom()+" et bienvenue dans le merveilleux monde des pokemons");
+		joueur.capturer(p9);
 		joueur.capturer(p2);
 		joueur.capturer(p3);
 		while(true){
+			System.out.println("voulez vous observez vos pokemons oui/non");
+			do{
+				reponse = lecteur.nextLine();
+			}while (!(reponse.equals("oui") || reponse.equals("non")));
+			System.out.println("moi oui");
+			if(reponse.equals("oui"))
+				
+				joueur.affichePokemon();
 			
 		}
 	/*	mojito.estMangee(p2);
@@ -106,7 +115,5 @@ public class ChasseAuxPokemons {
 				}
 			}	
 		}*/
-		joueur1.ajoutNourriture(nourriture1);
-		joueur1.ajoutNourriture(nourriture2);
 	}
 }
