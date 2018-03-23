@@ -16,13 +16,13 @@ public class Joueur {
 		this.tabPokemon = tabPokemon;
 		this.caisseNourriture = new Nourriture[10];
 	}
-	public boolean verifiePlace(){
-		boolean place=true;
+	public boolean verifiePlace(){//renvoi vrai quand place disponible
+		boolean place=false;
 		int i;
 		for (i=0;i<caisseNourriture.length;i++){
-			if (caisseNourriture[i]!=null)
-				place=false;
-		}
+			if (caisseNourriture[i]== null)
+				place=true;
+ 		}
 		return place;
 	}
 	
