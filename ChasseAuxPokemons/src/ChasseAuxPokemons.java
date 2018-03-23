@@ -27,8 +27,9 @@ public class ChasseAuxPokemons {
 		final Joueur joueur2 = new Joueur("Dupont","Pierre",20, new Pokemon[5]);
 		// Jean capture un pokemon qu'il nomme "Rascal " et le donne à Gabrielle
 		joueur1.capturer(p1);
-		
-		
+		final Joueur joueur3 = new Joueur("Morales","Andrea",20,new Pokemon[5]);
+		final Joueur joueur4 = new Joueur("Zeña","Carla",20, new Pokemon[5]);
+		final Nourriture carotte = new Nourriture(2, "carotte", new String[] {"PLANTE", "TERRE", "VOL"});
 		final Nourriture nourriture1 = new Nourriture(35,"Tartiflette",new String[30]);
 		final Nourriture nourriture2 = new Nourriture(10,"Ratatouille",new String[30]);
 		// la nourriture
@@ -39,6 +40,30 @@ public class ChasseAuxPokemons {
 		final Gourmandise barreChocolatee = new Gourmandise(20,"Barre Chocolatee",new String[] {"PLANTE"},10,7,5);
 		final Potionmagique mojito = new Potionmagique(0,"mojito",new String[] {"FEU"});
 		
+		joueur1.capturer(p1);
+		joueur1.capturer(p2);
+		joueur1.capturer(p4);
+		joueur1.donner(p1, joueur2);
+		joueur1.donner(p2, joueur3);
+		joueur2.regarderPokemon(p1);
+		joueur3.regarderPokemon(p2);
+		
+		joueur2.ajoutNourriture(tartiflette);
+		joueur2.ajoutNourriture(carotte);
+		joueur2.ajoutNourriture(barreChocolatee);
+		joueur2.afficheCaisseNourriture();
+		joueur2.ajoutNourriture(mojito);
+		joueur3.ajoutNourriture(ratatouille);
+		joueur3.ajoutNourriture(mojito);
+		joueur3.afficheCaisseNourriture();
+		System.out.println(p2.getAppetit());
+		joueur2.nourrir(p1, 2);//On le donne de la nourriture qui n'est pas compatible
+		joueur3.nourrir(p1, 2);//On essaye de nourrir un pokemon qui ne  lui appartient pas
+		joueur2.nourrir(p1, 4);//On utilise une caisse qui contient null
+		joueur3.nourrir(p2, 0);//On donne de la nourriture compatible au pokemon qui lui appartient 
+		System.out.println(p2.getAppetit());
+		joueur3.afficheCaisseNourriture();//On a bien verifié que la nourriture  a bien disparu après de  faire manger au pokemon
+		
 		Scanner lecteur = new Scanner(System.in);
 		System.out.println("entrer votre nom");
 		String nomJoueur = lecteur.nextLine();
@@ -47,22 +72,68 @@ public class ChasseAuxPokemons {
 		System.out.println("Quelle age avez vous");
 		int ageJoueur = lecteur.nextInt();
 		String reponse;
+		int rep;
+		int rep2;
 		final Joueur joueur = new Joueur(nomJoueur,prenomJoueur,ageJoueur,new Pokemon[5]);
 		System.out.println("Bonjour "+joueur.getPrenom()+" et bienvenue dans le merveilleux monde des pokemons");
 		joueur.capturer(p9);
 		joueur.capturer(p2);
 		joueur.capturer(p3);
-		while(true){
+		String continuer;
+		do {
 			System.out.println("voulez vous observez vos pokemons oui/non");
 			do{
 				reponse = lecteur.nextLine();
 			}while (!(reponse.equals("oui") || reponse.equals("non")));
 			System.out.println("moi oui");
-			if(reponse.equals("oui"))
-				
+			if(reponse.equals("oui")) {			
 				joueur.affichePokemon();
-			
-		}
+				System.out.println("quelle pokemon voulez vous voir");
+				rep = lecteur.nextInt();
+				joueur.regarderPokemon(joueur.getPokemon(rep-1)); //attention non fonctionnnel
+				System.out.println("voulez vous observez votre caisse de nourriture oui/non");
+				do{
+					reponse = lecteur.nextLine();
+				}while (!(reponse.equals("oui") || reponse.equals("non")));
+				if(reponse.equals("oui")) 
+					joueur.afficheCaisseNourriture();
+				System.out.println("voulez vous nourriture un de vos pokemon oui/non");
+				do{
+					reponse = lecteur.nextLine();
+				}while (!(reponse.equals("oui") || reponse.equals("non")));
+				if(reponse.equals("oui")) {
+					System.out.println("quelle pokemon nourrir puis avec quelle nourriture saisir index");
+					joueur.affichePokemon();
+					rep = lecteur.nextInt();
+					joueur.afficheCaisseNourriture();
+					rep2 = lecteur.nextInt();
+					joueur.nourrir(joueur.getPokemon(rep-1),rep2);// attention pas de verif et affichage non opti
+				}
+				Nourriture n = carotte.genAlea();
+			if (n == null) {
+					System.out.println("Vous n'avez rien trouve. Si vous voulez vous arreter, tapez << stop >> . Sinon, tapez << non >> .");
+				reponse = lecteur.next();
+				while (!reponse.equals("non") && reponse.equals("stop")) {
+					System.out.println("Refaites votre choix. Tapez << stop >> ou << non >>");
+					reponse = lecteur.next();
+				}
+			}
+			else {
+				do {
+					System.out.println(" voulez vous le prendre oui / non ");
+					reponse = lecteur.next();
+				}while (!(reponse.equals("oui") || reponse.equals("non")));
+				if (reponse.equals("oui")) {
+					joueur.ajoutNourriture(n);
+				}
+			}
+			}
+			do{
+				System.out.println("voulez vous continuez");
+				continuer = lecteur.nextLine();
+			}while (!(reponse.equals("oui") || reponse.equals("non")));	
+					
+		}while (continuer.equals("oui"));
 	/*	mojito.estMangee(p2);
 		barreChocolatee.estMangee(p2);
 		
