@@ -28,8 +28,8 @@ public class ChasseAuxPokemons {
 		joueur1.capturer(p1);
 		
 		
-		final Nourriture Nourriture1 = new Nourriture(35,"Tartiflette",new String[30]);
-		final Nourriture Nourriture2 = new Nourriture(10,"Ratatouille",new String[30]);
+		final Nourriture nourriture1 = new Nourriture(35,"Tartiflette",new String[30]);
+		final Nourriture nourriture2 = new Nourriture(10,"Ratatouille",new String[30]);
 		// la nourriture
 		final Nourriture tartiflette = new Nourriture(35,"tartiflette", new String[] {"DRAGON", "FEU", "COMBAT", "EAU", "ELECTRIQUE"});
 		final Nourriture ratatouille = new Nourriture(10, "ratatouille", new String[] {"PLANTE", "EAU", "VOL", "FEU", "NORMAL", "ELECTRIQUE", "COMBAT"}); 
@@ -38,13 +38,13 @@ public class ChasseAuxPokemons {
 		final Gourmandise barreChocolatee = new Gourmandise(20,"Barre Chocolatee",new String[] {"PLANTE"},10,7,5);
 		final Potionmagique mojito = new Potionmagique(0,"mojito",new String[] {"FEU"});
 		
-		mojito.estMangee(p2);
+	/*	mojito.estMangee(p2);
 		barreChocolatee.estMangee(p2);
 		
 		mojito.estMangee(p4);
-		barreChocolatee.estMangee(p4);
+		barreChocolatee.estMangee(p4);*/
 
-		final Nourriture carotte = new Nourriture(2, "carotte", new String[] {"PLANTE", "TERRE", "VOL"});
+		/*final Nourriture carotte = new Nourriture(2, "carotte", new String[] {"PLANTE", "TERRE", "VOL"});
 				System.out.println(carotte);
 				for (int i = 0; i < 10; i++) {
 					System.out.println(tartiflette.genAlea());
@@ -89,6 +89,8 @@ public class ChasseAuxPokemons {
 					System.out.println(p7.getAppetit());
 				}
 			}	
-		}
+		}*/
+		joueur1.ajoutNourriture(nourriture1);
+		joueur1.ajoutNourriture(nourriture2);
 	}
 }
