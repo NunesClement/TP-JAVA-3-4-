@@ -19,23 +19,21 @@ public class Joueur {
 	public boolean verifiePlace() {
 		boolean place = false;
 		int i = 0;
-		
 		for(i=0;i<this.caisseNourriture.length;i++) {
 			if(this.caisseNourriture[i]==null)
 				place = true;
 		}
 		return place;
 	}
-	public void afficheCaisseNourriture(){
-				int i;
-				for(i=0;i<caisseNourriture.length;i++){
-					if (caisseNourriture[i]!= null)
-						System.out.println(i+1 + " : " + caisseNourriture[i]);
-
-			}
-		}
 	public void lacherNourriture(int index){
 		caisseNourriture[index]=null;
+	}
+	public void afficheCaisseNourriture(){
+		int i;
+		for(i=0;i<caisseNourriture.length;i++){
+			if (caisseNourriture[i]!= null)
+				System.out.println(i+1 + " : " + caisseNourriture[i]);
+		}
 	}
 	public void ajoutNourriture(Nourriture nourritureTrouve) {
 		int i = 0;
@@ -45,8 +43,8 @@ public class Joueur {
 					
 					if(caisseNourriture[i]==null) {
 						caisseNourriture[i]=nourritureTrouve;
-						
 						break;
+						
 					}
 				}
 				
