@@ -33,6 +33,11 @@ public class Joueur {
 				System.out.println(i+1 + " : " + caisseNourriture[i]);
 		}
 	}
+	
+	public void lacherNourriture(int index){
+		caisseNourriture[index]=null;
+	}
+	
 	public int getAge() {
 		return age;
 	}
