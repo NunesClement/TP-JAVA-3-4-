@@ -38,6 +38,22 @@ public class ChasseAuxPokemons {
 		final Gourmandise barreChocolatee = new Gourmandise(20,"Barre Chocolatee",new String[] {"PLANTE"},10,7,5);
 		final Potionmagique mojito = new Potionmagique(0,"mojito",new String[] {"FEU"});
 		
+		Scanner lecteur = new Scanner(System.in);
+		System.out.println("entrer votre nom");
+		String nomJoueur = lecteur.nextLine();
+		System.out.println("entrer votre prenom");
+		String prenomJoueur = lecteur.nextLine();
+		System.out.println("Quelle age avez vous");
+		int ageJoueur = lecteur.nextInt();
+		
+		final Joueur joueur = new Joueur(nomJoueur,prenomJoueur,ageJoueur,new Pokemon[5]);
+		System.out.println("Bonjour "+joueur.getPrenom()+" et bienvenue dans le merveilleux monde des pokemons ");
+		joueur.capturer(p1);
+		joueur.capturer(p2);
+		joueur.capturer(p3);
+		while(true){
+			
+		}
 	/*	mojito.estMangee(p2);
 		barreChocolatee.estMangee(p2);
 		
