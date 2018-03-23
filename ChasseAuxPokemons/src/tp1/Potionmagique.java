@@ -8,7 +8,7 @@ public class Potionmagique extends Nourriture {
 	}
 
 	/*public Potionmagique(int apport, String nomIngredient, int frequence) {
-		super(apport, nomIngredient, , frequence);
+		super(apport, nomIngredient,frequence);
 		// TODO Auto-generated constructor stub
 	}*/
 

@@ -2,6 +2,7 @@ import tp1.Joueur;
 import tp1.Nourriture;
 import tp1.Pokemon;
 import tp1.Gourmandise;
+import tp1.Potionmagique;
 import java.util.Scanner;
 
 public class ChasseAuxPokemons {
@@ -33,7 +34,15 @@ public class ChasseAuxPokemons {
 		final Nourriture tartiflette = new Nourriture(35,"tartiflette", new String[] {"DRAGON", "FEU", "COMBAT", "EAU", "ELECTRIQUE"});
 		final Nourriture ratatouille = new Nourriture(10, "ratatouille", new String[] {"PLANTE", "EAU", "VOL", "FEU", "NORMAL", "ELECTRIQUE", "COMBAT"}); 
 		
-		final Gourmandise barreChocolatee = new Gourmandise(30,"barreChocolatee",new String[] {"PLANTE"},2,50,50);
+		//La compatibilite n'est pas terminée
+		final Gourmandise barreChocolatee = new Gourmandise(20,"Barre Chocolatee",new String[] {"PLANTE"},10,7,5);
+		final Potionmagique mojito = new Potionmagique(0,"mojito",new String[] {"FEU"});
+		
+		mojito.estMangee(p2);
+		barreChocolatee.estMangee(p2);
+		
+		mojito.estMangee(p4);
+		barreChocolatee.estMangee(p4);
 
 		final Nourriture carotte = new Nourriture(2, "carotte", new String[] {"PLANTE", "TERRE", "VOL"});
 				System.out.println(carotte);
