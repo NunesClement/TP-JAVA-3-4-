@@ -7,12 +7,34 @@ public class Joueur {
 	private int age;
 	//Tableau des pokemons possédés par le joueur
 	private Pokemon tabPokemon[];
-	
+	private Nourriture caisseNourriture[];
 	
 	public Joueur (String nom, String prenom, int age, Pokemon tabPokemon[]){
 		this.nom = nom;
 		this.prenom = prenom;
 		this.age = age;
+		this.tabPokemon = tabPokemon;
+		this.caisseNourriture = new Nourriture[10];
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public Nourriture[] getCaisseNourriture() {
+		return caisseNourriture;
+	}
+	public void setCaisseNourriture(Nourriture[] caisseNourriture) {
+		this.caisseNourriture = caisseNourriture;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+	public void setTabPokemon(Pokemon[] tabPokemon) {
 		this.tabPokemon = tabPokemon;
 	}
 	public String getNom() {
