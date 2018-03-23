@@ -16,27 +16,51 @@ public class Joueur {
 		this.tabPokemon = tabPokemon;
 		this.caisseNourriture = new Nourriture[10];
 	}
+	public boolean verifiePlace(){
+		boolean place=true;
+		int i;
+		for (i=0;i<caisseNourriture.length;i++){
+			if (caisseNourriture[i]!=null)
+				place=false;
+		}
+		return place;
+	}
+	
+	public void afficheCaisseNourriture(){
+		int i;
+		for(i=0;i<caisseNourriture.length;i++){
+			if (caisseNourriture[i]!= null)
+				System.out.println(i+1 + " : " + caisseNourriture[i]);
+		}
+	}
 	public int getAge() {
 		return age;
 	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
+
 	public Nourriture[] getCaisseNourriture() {
 		return caisseNourriture;
 	}
+
 	public void setCaisseNourriture(Nourriture[] caisseNourriture) {
 		this.caisseNourriture = caisseNourriture;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+
 	public void setTabPokemon(Pokemon[] tabPokemon) {
 		this.tabPokemon = tabPokemon;
 	}
+
 	public String getNom() {
 		return this.nom;
 	}
