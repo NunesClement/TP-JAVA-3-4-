@@ -17,27 +17,30 @@ public class Joueur {
 		this.caisseNourriture = new Nourriture[10];
 	}
 	public boolean verifiePlace() {
+		//Procedure permettant de verifier s'il reste de la place
 		boolean place = false;
 		int i = 0;
-		
 		for(i=0;i<this.caisseNourriture.length;i++) {
 			if(this.caisseNourriture[i]==null)
 				place = true;
 		}
 		return place;
 	}
-	public void afficheCaisseNourriture(){
-				int i;
-				for(i=0;i<caisseNourriture.length;i++){
-					if (caisseNourriture[i]!= null)
-						System.out.println(i+1 + " : " + caisseNourriture[i]);
-
-			}
-		}
+	
+	//Procedure permettant de lacher de la nourriture
 	public void lacherNourriture(int index){
 		caisseNourriture[index]=null;
 	}
+	public void afficheCaisseNourriture(){
+		//Procedure permettant d'afficher la caisse de nourriture
+		int i;
+		for(i=0;i<caisseNourriture.length;i++){
+			if (caisseNourriture[i]!= null)
+				System.out.println(i+1 + " : " + caisseNourriture[i]);
+		}
+	}
 	public void ajoutNourriture(Nourriture nourritureTrouve) {
+		//Procedure permettant l'ajout de nourriture
 		int i = 0;
 		
 			if(this.verifiePlace()==true) {
@@ -45,8 +48,8 @@ public class Joueur {
 					
 					if(caisseNourriture[i]==null) {
 						caisseNourriture[i]=nourritureTrouve;
-						
 						break;
+						
 					}
 				}
 				

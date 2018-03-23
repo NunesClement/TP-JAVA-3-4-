@@ -38,29 +38,13 @@ public class ChasseAuxPokemons {
 		final Gourmandise barreChocolatee = new Gourmandise(20,"Barre Chocolatee",new String[] {"PLANTE"},10,7,5);
 		final Potionmagique mojito = new Potionmagique(0,"mojito",new String[] {"FEU"});
 		
-		Scanner lecteur = new Scanner(System.in);
-		System.out.println("entrer votre nom");
-		String nomJoueur = lecteur.nextLine();
-		System.out.println("entrer votre prenom");
-		String prenomJoueur = lecteur.nextLine();
-		System.out.println("Quelle age avez vous");
-		int ageJoueur = lecteur.nextInt();
-		
-		final Joueur joueur = new Joueur(nomJoueur,prenomJoueur,ageJoueur,new Pokemon[5]);
-		System.out.println("Bonjour "+joueur.getPrenom()+" et bienvenue dans le merveilleux monde des pokemons ");
-		joueur.capturer(p1);
-		joueur.capturer(p2);
-		joueur.capturer(p3);
-		while(true){
-			
-		}
 	/*	mojito.estMangee(p2);
 		barreChocolatee.estMangee(p2);
 		
 		mojito.estMangee(p4);
 		barreChocolatee.estMangee(p4);*/
 
-		/*final Nourriture carotte = new Nourriture(2, "carotte", new String[] {"PLANTE", "TERRE", "VOL"});
+	/*	final Nourriture carotte = new Nourriture(2, "carotte", new String[] {"PLANTE", "TERRE", "VOL"});
 				System.out.println(carotte);
 				for (int i = 0; i < 10; i++) {
 					System.out.println(tartiflette.genAlea());
@@ -106,7 +90,32 @@ public class ChasseAuxPokemons {
 				}
 			}	
 		}*/
+		//Affichage de la caisse de nourriture pour l'un des joueurs
+		joueur2.afficheCaisseNourriture();
+
+		//Ajout d'une nourriture de notre choix à la caisse
 		joueur1.ajoutNourriture(nourriture1);
 		joueur1.ajoutNourriture(nourriture2);
+		joueur1.afficheCaisseNourriture();
+		
+		// Afficher la caisse de nourriture pour l'un des joueurs
+		joueur1.afficheCaisseNourriture();
+		
+		//Test de la place dans la classe nourriture
+		if(joueur1.verifiePlace()==true) {
+			System.out.println("Il reste de la place");
+		}
+		else {
+			System.out.println("Il ne reste pas de place");
+		}
+		
+		// Test de rajouter 10 fois de la nourriture
+		int k;
+		for(k=0;k<10;k++) {
+			joueur1.ajoutNourriture(nourriture1);
+		}
+		//Afficher la nourriture pour les joueurs
+		joueur1.afficheCaisseNourriture();
+		joueur2.afficheCaisseNourriture();
 	}
 }
