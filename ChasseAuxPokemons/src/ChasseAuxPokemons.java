@@ -15,7 +15,7 @@ public class ChasseAuxPokemons {
 		final Pokemon p2 = new Pokemon("Rowlet","PLANTE",10, false, 50,0,50);
 		final Pokemon p3 = new Pokemon("Totodile","EAU",8, true, 50,0,50);
 		final Pokemon p4 = new Pokemon("Aflamanoir","FEU",7, true, 50,0,50);
-		final Pokemon p5 = new Pokemon("Bétochef","COMBAT",7, true, 50,0,50);
+		final Pokemon p5 = new Pokemon("BÃ©tochef","COMBAT",7, true, 50,0,50);
 		final Pokemon p6 = new Pokemon("Elektek","ELECTRIQUE",7, true, 50,0,50);
 		final Pokemon p7 = new Pokemon("Boumata","DRAGON",7, true, 50,0,50);
 		final Pokemon p8 = new Pokemon("Salameche","FEU",7, true, 50,0,50);
@@ -25,10 +25,10 @@ public class ChasseAuxPokemons {
 		
 		final Joueur joueur1 = new Joueur("Durant","Sachat",20,new Pokemon[5]);
 		final Joueur joueur2 = new Joueur("Dupont","Pierre",20, new Pokemon[5]);
-		// Jean capture un pokemon qu'il nomme "Rascal " et le donne à Gabrielle
+		// Jean capture un pokemon qu'il nomme "Rascal " et le donne Ã  Gabrielle
 		joueur1.capturer(p1);
 		final Joueur joueur3 = new Joueur("Morales","Andrea",20,new Pokemon[5]);
-		final Joueur joueur4 = new Joueur("Zeña","Carla",20, new Pokemon[5]);
+		final Joueur joueur4 = new Joueur("ZeÃ±a","Carla",20, new Pokemon[5]);
 		final Nourriture carotte = new Nourriture(2, "carotte", new String[] {"PLANTE", "TERRE", "VOL"});
 		final Nourriture nourriture1 = new Nourriture(35,"Tartiflette",new String[30]);
 		final Nourriture nourriture2 = new Nourriture(10,"Ratatouille",new String[30]);
@@ -36,7 +36,7 @@ public class ChasseAuxPokemons {
 		final Nourriture tartiflette = new Nourriture(35,"tartiflette", new String[] {"DRAGON", "FEU", "COMBAT", "EAU", "ELECTRIQUE"});
 		final Nourriture ratatouille = new Nourriture(10, "ratatouille", new String[] {"PLANTE", "EAU", "VOL", "FEU", "NORMAL", "ELECTRIQUE", "COMBAT"}); 
 		
-		//La compatibilite n'est pas terminée
+		//La compatibilite n'est pas terminÃ©e
 		final Gourmandise barreChocolatee = new Gourmandise(20,"Barre Chocolatee",new String[] {"PLANTE"},10,7,5);
 		final Potionmagique mojito = new Potionmagique(0,"mojito",new String[] {"FEU"});
 		
@@ -62,7 +62,7 @@ public class ChasseAuxPokemons {
 		joueur2.nourrir(p1, 4);//On utilise une caisse qui contient null
 		joueur3.nourrir(p2, 0);//On donne de la nourriture compatible au pokemon qui lui appartient 
 		System.out.println(p2.getAppetit());
-		joueur3.afficheCaisseNourriture();//On a bien verifié que la nourriture  a bien disparu après de  faire manger au pokemon
+		joueur3.afficheCaisseNourriture();//On a bien verifiÃ© que la nourriture  a bien disparu aprÃ¨s de  faire manger au pokemon
 		
 		Scanner lecteur = new Scanner(System.in);
 		System.out.println("entrer votre nom");
@@ -186,5 +186,32 @@ public class ChasseAuxPokemons {
 				}
 			}	
 		}*/
+		//Affichage de la caisse de nourriture pour l'un des joueurs
+		joueur2.afficheCaisseNourriture();
+
+		//Ajout d'une nourriture de notre choix Ã  la caisse
+		joueur1.ajoutNourriture(nourriture1);
+		joueur1.ajoutNourriture(nourriture2);
+		joueur1.afficheCaisseNourriture();
+		
+		// Afficher la caisse de nourriture pour l'un des joueurs
+		joueur1.afficheCaisseNourriture();
+		
+		//Test de la place dans la classe nourriture
+		if(joueur1.verifiePlace()==true) {
+			System.out.println("Il reste de la place");
+		}
+		else {
+			System.out.println("Il ne reste pas de place");
+		}
+		
+		// Test de rajouter 10 fois de la nourriture
+		int k;
+		for(k=0;k<10;k++) {
+			joueur1.ajoutNourriture(nourriture1);
+		}
+		//Afficher la nourriture pour les joueurs
+		joueur1.afficheCaisseNourriture();
+		joueur2.afficheCaisseNourriture();
 	}
 }
