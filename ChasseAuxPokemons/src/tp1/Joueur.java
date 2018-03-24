@@ -5,7 +5,7 @@ public class Joueur {
 	private String nom;
 	private String prenom;
 	private int age;
-	//Tableau des pokemons possédés par le joueur
+	//Tableau des pokemons possÃ©dÃ©s par le joueur
 	private Pokemon tabPokemon[];
 	private Nourriture caisseNourriture[];
 	
@@ -17,6 +17,7 @@ public class Joueur {
 		this.caisseNourriture = new Nourriture[10];
 	}
 	public boolean verifiePlace() {
+		//Procedure permettant de verifier s'il reste de la place
 		boolean place = false;
 		int i = 0;	
 		for(i=0;i<this.caisseNourriture.length;i++) {
@@ -27,6 +28,7 @@ public class Joueur {
 	}
 	
 	public void afficheCaisseNourriture(){
+		//Procedure permettant d'afficher la Caisse de Nourriture
 		int i;
 		for(i=0;i<caisseNourriture.length;i++){
 			if (caisseNourriture[i]!= null)
@@ -35,9 +37,11 @@ public class Joueur {
 		}
 	
 	public void lacherNourriture(int index){
+		//Procedure permettant de lacher de la nourriture
 		caisseNourriture[index]=null;
 	}
 	public void ajoutNourriture(Nourriture nourritureTrouve) {
+		//Procedure permettant l'ajout de nourriture
 		int i = 0;		
 			if(this.verifiePlace()==true) {
 				for (i=0; i< caisseNourriture.length;i++) {					
@@ -48,7 +52,7 @@ public class Joueur {
 				}				
 			}
 			else {
-					System.out.println("Vous n'avez plus de place");
+				System.out.println("Vous n'avez plus de place");
 			}
 	}
 	
@@ -203,7 +207,7 @@ public class Joueur {
 		}
   }
 
-	//TP N°5
+	//TP NÂ°5
 	public void regarderPokemon(Pokemon p) {
 		if(p.getMonJoueur().equals(this)) 	
 			System.out.println(p);
@@ -218,7 +222,7 @@ public class Joueur {
 				if(this.caisseNourriture[index].estCompatible(p.getType())) {
 					p.mange(this.caisseNourriture[index]);
 					this.lacherNourriture(index);
-					System.out.println("Votre pokemon a bien mangé...");
+					System.out.println("Votre pokemon a bien mangÃ©...");
 				}
 				else
 					System.out.println("La nourriture n'est pas compatible avec votre pokemon...");
