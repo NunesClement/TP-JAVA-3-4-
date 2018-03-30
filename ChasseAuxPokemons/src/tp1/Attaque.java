@@ -2,11 +2,11 @@ package tp1;
 
 public abstract class Attaque {
 	private String  nom;
-	private String[] type_compatible;
-	private int power;
-	private int acc;
-	private int pp;
-	private int pp_restant;
+	protected String[] type_compatible;
+	protected int power;
+	protected int acc;
+	protected int pp;
+	protected int pp_restant;
 	
 	public Attaque(String nom, String[] type_compatible, int power, int acc, int pp) {
 		this.nom = nom;
