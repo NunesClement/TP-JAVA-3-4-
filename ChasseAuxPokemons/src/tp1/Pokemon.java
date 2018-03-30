@@ -226,4 +226,17 @@ public class Pokemon {
 					this.sesAttaques[i] = a;
 			}
 		}
+		public void removeAttaque(int index){
+			if (index >= sesAttaques.length-1 && index <=0)
+				sesAttaques[index]=null;
+			else 
+				System.out.println("index non compris dans intervalle");
+		}
+		public void regarderAttaque(){
+			for (int i = 0; i < sesAttaques.length; i++) {
+				if (sesAttaques[i]!=null) {
+					System.out.println(i + sesAttaques[i].toString());
+				}	
+			}
+		}
 }
