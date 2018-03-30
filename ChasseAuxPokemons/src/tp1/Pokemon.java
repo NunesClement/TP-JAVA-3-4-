@@ -11,9 +11,10 @@ public class Pokemon {
 	private int appetit;
 	private int loyaute;
 	private int satisfaction;
-	
+	private int hp;
+	private int hp_restant;
 	//Constructeur
-	public Pokemon(String monNom,String montype,int monNiveau, Boolean typeDiurne, int appetit, int loyaute, int satisfaction){
+	public Pokemon(String monNom,String montype,int monNiveau, Boolean typeDiurne, int appetit, int loyaute, int satisfaction,int hp,int hp_restant){
 		this.nom = monNom;
 		this.type = montype;
 		this.niveau = monNiveau;
@@ -24,10 +25,12 @@ public class Pokemon {
 		this.appetit = appetit;
 		this.loyaute = loyaute;
 		this.satisfaction = satisfaction;
+		this.hp = hp;
+		this.hp_restant = hp_restant;
 	}
 	
 	//Constructeur Pokemon une fois Capture
-	public Pokemon(String monNom,String montype,int monNiveau, Boolean typeDiurne, String monNomDonne, Joueur monJoueur , int appetit, int loyaute, int satisfaction){
+	public Pokemon(String monNom,String montype,int monNiveau, Boolean typeDiurne, String monNomDonne, Joueur monJoueur , int appetit, int loyaute, int satisfaction, int hp,int hp_restant){
 
 		this.nom = monNom;
 		this.type = montype;
@@ -38,8 +41,26 @@ public class Pokemon {
 		this.appetit = appetit;
 		this.loyaute = loyaute;
 		this.satisfaction = satisfaction;
+		this.hp = hp;
+		this.hp_restant = hp_restant;
 	}
-	//Getters and setters
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+
+	public int getHp_restant() {
+		return hp_restant;
+	}
+
+	public void setHp_restant(int hp_restant) {
+		this.hp_restant = hp_restant;
+	}
+
+		//Getters and setters
 		public String getNom() {
 	        return this.nom;
 	    }

@@ -87,4 +87,10 @@ public abstract class Attaque {
 			return (nom + power + acc + pp + pp_restant + "compatible avec " + type_compta);
 		}
 	}
+	public void utiliser(Pokemon pokemon_attaquant,Pokemon victime){
+		victime.setHp_restant(victime.getHp_restant()-this.power);
+		this.pp_restant--;
+	}
+	
+	public abstract boolean estCompatible(Pokemon p);
 }
