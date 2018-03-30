@@ -130,17 +130,16 @@ public class Pokemon {
 	    	this.satisfaction = satisfaction;
 	    }
 	    
-	//Methode toString a faire pour hp attaque et autre
 	public String toString(){
 		if (monJoueur != null) {
 			if (this.nomDonne != null){
-				return (this.nomDonne + " est un pokemon du genre" + this.nom + ", du type " + this.type + ", qui a le niveau " + this.niveau + ". Ce pokemon appartient a " + monJoueur.getNom() + " " + monJoueur.getPrenom() + ". Il/Elle a un appetit de " + this.appetit + ", un niveau de satisfaction de " + this.satisfaction + " et une loyaute aupres son maitre de " + this.loyaute + ".");
+				return (this.nomDonne + " est un pokemon du genre" + this.nom + ", du type " + this.type + ", qui a le niveau " + this.niveau + ". Ce pokemon appartient a " + monJoueur.getNom() + " " + monJoueur.getPrenom() + ". Il/Elle a un appetit de " + this.appetit + ", un niveau de satisfaction de " + this.satisfaction + " et une loyaute aupres son maitre de " + this.loyaute + " Points de vie "+ this.hp + ".");
 			}
 			else {
-				return ("Voici un pokemon du genre " + this.nom + ", du type " + this.type + ", qui a le niveau " + this.niveau + ". Ce pokemon appartient a " + this.monJoueur.getNom() + " " + this.monJoueur.getPrenom() + ". Il/Elle a un appetit de " + this.appetit + ", un niveau de satisfaction de " + this.satisfaction + " et une loyaute aupres son maitre de " + this.loyaute + ".");
+				return ("Voici un pokemon du genre " + this.nom + ", du type " + this.type + ", qui a le niveau " + this.niveau + ". Ce pokemon appartient a " + this.monJoueur.getNom() + " " + this.monJoueur.getPrenom() + ". Il/Elle a un appetit de " + this.appetit + ", un niveau de satisfaction de " + this.satisfaction + " et une loyaute aupres son maitre de " + this.loyaute +" Points de vie "+ this.hp+ ".");
 			}
 			} else {
-				return "Voici un pokemon du genre " + this.nom + ", du type " + this.type + ", qui a le niveau " + this.niveau + ". Ce pokemon n'a pas encore de maitre. Il/Elle a un appetit de " + this.appetit + " une satisfaction de " + this.satisfaction + " et une loyaute de " + this.loyaute + ".";
+				return "Voici un pokemon du genre " + this.nom + ", du type " + this.type + ", qui a le niveau " + this.niveau + ". Ce pokemon n'a pas encore de maitre. Il/Elle a un appetit de " + this.appetit + " une satisfaction de " + this.satisfaction + " et une loyaute de " + this.loyaute + " Points de vie "+ this.hp + ".";
 			}
 	}
 	
@@ -213,7 +212,7 @@ public class Pokemon {
 				this.loyaute = 100;
 			}
 		}
-		public void  mange(Nourriture nourriture)
+		public void mange(Nourriture nourriture)
 		{
 			if (nourriture.estCompatible(this.type) )
 				nourriture.estMangee(this);
@@ -235,8 +234,33 @@ public class Pokemon {
 		public void regarderAttaque(){
 			for (int i = 0; i < sesAttaques.length; i++) {
 				if (sesAttaques[i]!=null) {
-					System.out.println(i + sesAttaques[i].toString());
+					System.out.println(i + sesAttaques[i].toString() + sesAttaques[i].getPp_restant());
 				}	
+			}
+		}
+		public void resetAttaque() {
+			for(int i = 0; i<sesAttaques.length;i++) {
+				sesAttaques[i].resetRepetition();
+			}
+		}
+		public boolean sestEvanoui() {
+			boolean zero = false;
+			if(this.hp ==0) {
+				return zero;
+			}
+			return zero;
+		}
+		public void estBlesse(int domage) {
+			if(this.sestEvanoui() != true) {
+				this.hp = this.hp - domage;
+			}
+			else {
+				System.out.println("Le pokemon ne peux pas prendre plus de dommage");
+			}
+		}
+		public void utiliseAttaque(int index, Pokemon victime) {
+			if(this.sestEvanoui() != true && index > 0 && index < sesAttaques.length && sesAttaques[index] != null) {
+				
 			}
 		}
 }
