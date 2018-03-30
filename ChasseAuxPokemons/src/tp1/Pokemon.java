@@ -13,25 +13,15 @@ public class Pokemon {
 	private int satisfaction;
 	private int hp;
 	private int hp_restant;
+	private Attaque[] sesAttaques;
+	
 	//Constructeur
-	public Pokemon(String monNom,String montype,int monNiveau, Boolean typeDiurne, int appetit, int loyaute, int satisfaction,int hp,int hp_restant){
-		this.nom = monNom;
-		this.type = montype;
-		this.niveau = monNiveau;
-		this.diurne = typeDiurne;
-		//this.joueurNoman = monJoueur;
-		this.nomDonne=null;
-		this.monJoueur=null;
-		this.appetit = appetit;
-		this.loyaute = loyaute;
-		this.satisfaction = satisfaction;
-		this.hp = hp;
-		this.hp_restant = hp_restant;
+	public Pokemon(String monNom,String montype,int monNiveau, Boolean typeDiurne, int appetit, int loyaute, int satisfaction,int hp,int hp_restant, Attaque[] sesAttaques){
+		this(monNom,montype,monNiveau,typeDiurne,null,null,appetit,loyaute,satisfaction,hp,hp_restant,sesAttaques);
 	}
 	
 	//Constructeur Pokemon une fois Capture
-	public Pokemon(String monNom,String montype,int monNiveau, Boolean typeDiurne, String monNomDonne, Joueur monJoueur , int appetit, int loyaute, int satisfaction, int hp,int hp_restant){
-
+	public Pokemon(String monNom,String montype,int monNiveau, Boolean typeDiurne, String monNomDonne, Joueur monJoueur , int appetit, int loyaute, int satisfaction, int hp,int hp_restant,Attaque[] sesAttaques2){
 		this.nom = monNom;
 		this.type = montype;
 		this.niveau = monNiveau;
@@ -43,6 +33,11 @@ public class Pokemon {
 		this.satisfaction = satisfaction;
 		this.hp = hp;
 		this.hp_restant = hp_restant;
+		this.sesAttaques= new Attaque[4];
+		for (int i = 0; i < sesAttaques2.length; i++) {
+			if (sesAttaques2[i]!=null) 
+				this.addAttaque(sesAttaques2[i]);
+		}
 	}
 	public int getHp() {
 		return hp;
@@ -135,7 +130,7 @@ public class Pokemon {
 	    	this.satisfaction = satisfaction;
 	    }
 	    
-	//Methode toString
+	//Methode toString a faire pour hp attaque et autre
 	public String toString(){
 		if (monJoueur != null) {
 			if (this.nomDonne != null){
@@ -224,5 +219,11 @@ public class Pokemon {
 				nourriture.estMangee(this);
 			else 
 				System.out.println("type du Pokemon pas compatible avec nourriture");
+		}
+		public void addAttaque(Attaque a){
+			for (int i = 0; i < sesAttaques.length; i++) {
+				if(sesAttaques[i]==null && a.estCompatible(this) )
+					this.sesAttaques[i] = a;
+			}
 		}
 }
